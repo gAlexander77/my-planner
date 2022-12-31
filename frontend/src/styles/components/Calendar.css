@@ -1,0 +1,104 @@
+.calendar{
+    margin-top: 3%;
+}
+
+.calendar-header {
+    max-width: 1400px;
+    width: 80%;
+    margin: auto;
+    margin-bottom: 10px;
+    position: relative;
+}
+
+.calendar-navigator-container {
+    display: flex;
+    flex-direction: row;
+    position: absolute;
+    bottom: 0px;
+}
+
+.navigate-btn {
+    all: unset;
+    font-size: 30px;
+    cursor: pointer;
+    color: rgb(92, 92, 92);
+    margin-right: 5px;
+}
+
+.navigate-btn:hover {
+    color: rgb(126, 126, 126);
+}
+
+.navigate-dates-shown {
+    font-size: 24px;
+    color: rgb(92, 92, 92);
+}
+
+.calendar-key-container{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+.key-item{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding-top: 5px;
+}
+
+.key-color-box {
+    width: 12px;
+    height: 12px;
+    margin-left: 4px;
+}
+
+.calendar-outer {
+    align-items: center;
+    max-width: 1400px;
+    width: 80%;
+    margin: auto;
+
+    border: 2px solid black;
+    border-radius: 10px;
+    padding-top: 10px;
+    padding-bottom: 20px;
+}
+.calendar-inner {
+    display: flex;
+    flex-direction: row;
+
+    justify-content: center;
+}
+
+.calendar-day {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 13%;
+}
+
+.calendar-day-tasks {
+    width: 100%;
+    height: 500px;
+    /*background-color: green;*/
+    border: 1px solid black;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.task {
+    color: white;
+    background-color: #00D1FF;
+    border-radius: 10px;
+    padding: 2px 10%;
+    width: 75%;
+    margin-top: 10px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;    
+}
+
