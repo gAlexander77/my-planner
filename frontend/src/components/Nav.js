@@ -8,10 +8,10 @@ function Nav() {
             <h1 className="nav-title">MyPlanner</h1>
             <div className="nav-menu">  
                 <button className="nav-add-task-btn">
-                    <BsPlusLg className="nav-add-task-icon"/>Add Task
+                    <BsPlusLg className="nav-add-task-icon"/><p>Add Task</p>
                 </button>
                 <button className="nav-logout-btn">
-                    Logout<BsBoxArrowRight className="nav-logout-icon"/>
+                    <p>Logout</p><BsBoxArrowRight className="nav-logout-icon"/>
                 </button>
             </div>  
         </div>

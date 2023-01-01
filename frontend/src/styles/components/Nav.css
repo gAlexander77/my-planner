@@ -17,6 +17,7 @@
     margin-left: auto;
     margin-right: 1%;
     align-self: center;
+    display: flex;
 }
 
 .nav-add-task-btn {
@@ -27,6 +28,11 @@
     margin-right: 20px;
     padding: 7px 10px;
     border-radius: 10px;
+    display: flex;
+}
+
+.nav-add-task-btn:hover{
+    background-color: #00afd6;
 }
 
 .nav-add-task-icon {
@@ -38,4 +44,19 @@
     color: white;
     font-weight: 700;
     cursor: pointer;
+    position: relative;
+    align-items: center;
+    display: flex;
+
+    padding: 7px 10px;
+    border-radius: 10px;
+}
+
+.nav-logout-btn:hover{
+    background-color: #00afd6;
+}
+
+.nav-logout-icon {
+    margin-left: 4px;
+    font-size: 18px;
 }
