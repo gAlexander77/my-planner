@@ -4,7 +4,7 @@ import '../styles/components/Calendar.css';
 
 import data from './data';
 
-function Calendar(){
+function Calendar(props){
 
     const days = ["SUN", "MON", "TUE", "WED", "THU", "FRI", "SAT"];
     const months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]
@@ -75,13 +75,13 @@ function Calendar(){
         return(
             <div className="calendar-key-container">
                 <div className="key-item">To Do <div className="key-color-box" style={{backgroundColor: "#00D1FF"}}/></div>
-                <div className="key-item">Completed<div className="key-color-box" style={{backgroundColor: "#D9D9D9"}}/></div>
+                <div className="key-item">Completed<div className="key-color-box" style={{backgroundColor: "#858585"}}/></div>
                 <div className="key-item">Past Due<div className="key-color-box" style={{backgroundColor: "#FF0000"}}/></div>
             </div>
         );
     }    
 
-    function Task({task, date, isCompleted}){
+    function Task({task, note, date, isCompleted}){
         
         const now = new Date
         const todaysDate = `${now.getMonth()+1}-${now.getDate()}-${now.getFullYear()}`
@@ -89,35 +89,50 @@ function Calendar(){
         let taskDateValues = date.split('-');
 
         let color = "";
-        let line = ""
+        let line = "";
+        let status = "";
         if (isCompleted == 1){
             // Grey
-            color = "#D9D9D9";
-            line = "line-through"
+            color = "#858585";
+            line = "line-through";
+            status = "Completed";
         }
         else{
             // Blue
             color = "#00D1FF";
+            status = "To Do";
             if(Number(taskDateValues[2]) < Number(todaysDateValues[2])){
                 // red
                 color = "#FF0000";
+                status = "Past Due";
             }
             if(Number(taskDateValues[0]) < Number(todaysDateValues[0])){
                 // red
                 color = "#FF0000";
+                status = "Past Due";
             }
             if(Number(taskDateValues[1]) < Number(todaysDateValues[1]) && Number(taskDateValues[0]) < Number(todaysDateValues[0])){
                 // red
                 color = "#FF0000";
+                status = "Past Due";
             }
         }
 
         const style = {backgroundColor: `${color}`, textDecoration: `${line}`};
         
+        const viewTaskHandler = () => {
+            props.setTask(task)
+            props.setTaskNote(note)
+            props.setTaskDueDate(date)
+            props.setTaskIsCompleted(isCompleted)
+            props.setTaskStatus(status)
+            props.setViewTask(true)
+        }
+
         return(
-            <div className="task" style={style}>
-                <p>{task}</p>
-            </div>  
+            <button className="task" style={style} onClick={viewTaskHandler}>
+                <>{task}</>
+            </button>  
         );
     }
     
@@ -151,6 +166,7 @@ function Calendar(){
                             <Task
                                 key = {index}
                                 task={task.task}
+                                note = {task.note}
                                 date={task.dueDate}
                                 isCompleted={task.isCompleted}
                             />
