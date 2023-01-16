@@ -1,17 +1,19 @@
 package models
 
-// User Model
-type user struct {
-	Id       int    `json:"id"`
-	Username string `json:"username"`
-	Password string `json:"password"`
-}
+import "go.mongodb.org/mongo-driver/bson/primitive"
 
 // Task Model
-type task struct {
-	Id          int    `json:"id"`
-	Task        string `json:"task"`
-	Note        string `json:"note"`
-	IsCompleted bool   `json:"isCompleted"`
-	UserID      int    `json:"user_id"`
+type Task struct {
+	Task        string `json:"task" bson:"task"`
+	Note        string `json:"note" bson:"note"`
+	Date        string `json:"date" bson:"date"`
+	IsCompleted bool   `json:"isCompleted" bson:"isCompleted"`
+}
+
+type CreateTask struct {
+	Id          primitive.ObjectID `json:"id" bson:"_id"`
+	Task        string             `json:"task" bson:"task"`
+	Note        string             `json:"note" bson:"note"`
+	Date        string             `json:"date" bson:"date"`
+	IsCompleted bool               `json:"isCompleted" bson:"isCompleted"`
 }
