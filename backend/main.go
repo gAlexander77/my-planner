@@ -1,17 +1,13 @@
 package main
 
 import (
-	"github.com/gofiber/fiber/v2"
+	"github.com/galexander77/my-planner/backend/app"
 )
 
 func main() {
-	app := fiber.New()
-
-	message := "Fiber Server is running!"
-
-	app.Get("/", func(c *fiber.Ctx) error {
-		return c.SendString(message)
-	})
-
-	app.Listen(":3000")
+	// setup and run app
+	err := app.SetupAndRunApp()
+	if err != nil {
+		panic(err)
+	}
 }
