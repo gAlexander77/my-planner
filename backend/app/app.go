@@ -5,6 +5,7 @@ import (
 
 	"github.com/galexander77/my-planner/backend/config"
 	"github.com/galexander77/my-planner/backend/db"
+	"github.com/galexander77/my-planner/backend/router"
 	"github.com/gofiber/fiber/v2"
 	"github.com/gofiber/fiber/v2/middleware/logger"
 	"github.com/gofiber/fiber/v2/middleware/recover"
@@ -34,6 +35,9 @@ func SetupAndRunApp() error {
 	app.Use(logger.New(logger.Config{
 		Format: "[${ip}]:${port} ${status} - ${method} ${path} ${latency}\n",
 	}))
+
+	// setup routes
+	router.SetupRoutes(app)
 
 	// get the port and start
 	port := os.Getenv("PORT")
