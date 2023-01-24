@@ -111,7 +111,7 @@ function Calendar(props){
                 color = "#FF0000";
                 status = "Past Due";
             }
-            if(Number(taskDateValues[1]) < Number(todaysDateValues[1]) && Number(taskDateValues[0]) < Number(todaysDateValues[0])){
+            if(Number(taskDateValues[1]) < Number(todaysDateValues[1]) && Number(taskDateValues[0]) <= Number(todaysDateValues[0])){
                 // red
                 color = "#FF0000";
                 status = "Past Due";
@@ -203,7 +203,6 @@ function Calendar(props){
                 {dates[6]===undefined ? '': <CalendarKey/>}
             </div>
             {dates[6]===undefined ? '': <Calendar/> }
-               
         </div>
     );
 }

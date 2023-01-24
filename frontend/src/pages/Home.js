@@ -3,7 +3,6 @@ import Nav from '../components/Nav';
 import Calendar from '../components/Calendar';
 import ViewTask from '../components/ViewTask';
 import AddTask from '../components/AddTask';
-import Logout from '../components/Logout';
 import '../styles/pages/Home.css';
 
 function Home(){
@@ -57,10 +56,6 @@ function Home(){
             <AddTask
                 trigger = {addTask}
                 setTrigger = {setAddTask}
-            />
-            <Logout
-                trigger= {logout}
-                setTrigger = {setLogout}
             />
         </div>
     );
