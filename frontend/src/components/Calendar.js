@@ -38,12 +38,6 @@ function Calendar(props){
     }
 
     useEffect(() => {
-        /*console.log(days[0])
-        console.log(days[date(0).getDay()])
-        console.log(date(0).getDate())
-        console.log(date(0).getMonth()+1)
-        console.log(date(0).getFullYear())*/
-
         console.log(date(0).getDay())
         setDays(week)
 
